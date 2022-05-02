@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 
 st.title('Nickel Production from Laterites vs Sulfides')
 
-year = st.slider('year', 1999, 2018)
+year = st.slider('Select a year between 1999 and 2018', 1999, 2018)
 
 #for 1999-2003
 url1 = "https://s3-us-west-2.amazonaws.com/prd-wret/assets/palladium/production/mineral-pubs/nickel/nickemyb03.xls" 
@@ -404,6 +404,7 @@ merged_lat=pd.merge(merged_lat,cnt, on='Country', how='inner')
 merged_sulf=pd.merge(merged_sulf,cnt, on='Country', how='inner')
 
 y = str(year)
+st.write('Distribution of nickel production among two types of deposit types is shown here for the year %s. Laterite is shown in red, sulfide is shown in blue.' % (y))
 # combined map
 c = folium.Map(tiles="Stamen Terrain")
 for index, row in merged_lat.iterrows():
