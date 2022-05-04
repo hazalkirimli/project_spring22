@@ -1,4 +1,4 @@
-name: myenv_app
+name: environment
 channels:
   - conda-forge
   - defaults
