@@ -20,17 +20,21 @@ year = st.slider('Select a year between 1999 and 2018', 1999, 2018)
 
 #for 1999-2003
 #url1 = "https://s3-us-west-2.amazonaws.com/prd-wret/assets/palladium/production/mineral-pubs/nickel/nickemyb03.xls" 
+url1 = 'https://github.com/hazalkirimli/project_spring22/raw/main/2003.xls'
 #for 2004-2008
 #url2 = "https://s3-us-west-2.amazonaws.com/prd-wret/assets/palladium/production/mineral-pubs/nickel/myb1-2008-nicke.xls"
+url2 = 'https://github.com/hazalkirimli/project_spring22/raw/main/2008.xls'
 #for 2009-2013
 #url3 = "https://s3-us-west-2.amazonaws.com/prd-wret/assets/palladium/production/mineral-pubs/nickel/myb1-2013-nicke.xls"
+url3 = 'https://github.com/hazalkirimli/project_spring22/raw/main/2013.xls'
 #for 2014-2018
 #url4 = "https://prd-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/atoms/files/myb1-2018-nicke-adv.xlsx"
+url4 = 'https://github.com/hazalkirimli/project_spring22/raw/main/2018.xlsx'
 
 #For mine production data
 #1999-2003
-#add1 = pd.read_excel(url1, sheet_name = "Table10", skiprows = 5)
-add1 = pd.read_excel('2003.xls', sheet_name = "Table10", skiprows = 5)
+add1 = pd.read_excel(url1, sheet_name = "Table10", skiprows = 5)
+#add1 = pd.read_excel('2003.xls', sheet_name = "Table10", skiprows = 5)
 add1.drop(add1.columns[add1.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
 #excludes everything in the description part
 thre1 = add1['Country']=='Of which:'
@@ -93,8 +97,8 @@ add1_sulf = add1_sulf.replace('--', 0)
 add1_lat = add1_lat.replace('--', 0)
 
 #2004-2008
-#add2 = pd.read_excel(url2, sheet_name = "Table10", skiprows = 5)
-add2 = pd.read_excel('2008.xls', sheet_name = "Table10", skiprows = 5)
+add2 = pd.read_excel(url2, sheet_name = "Table10", skiprows = 5)
+#add2 = pd.read_excel('2008.xls', sheet_name = "Table10", skiprows = 5)
 add2.rename(columns = {'Country and products2': 'Country'}, inplace = True)
 add2.drop(add2.columns[add2.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
 
@@ -187,8 +191,8 @@ add2_sulf = add2_sulf.replace('--', 0)
 add2_lat = add2_lat.replace('--', 0)
 
 #2009-2013
-#add3 = pd.read_excel(url3, sheet_name = "T10", skiprows = 5)
-add3 = pd.read_excel('2013.xls', sheet_name = "T10", skiprows = 5)
+add3 = pd.read_excel(url3, sheet_name = "T10", skiprows = 5)
+#add3 = pd.read_excel('2013.xls', sheet_name = "T10", skiprows = 5)
 add3.rename(columns = {'Country and products3': 'Country'}, inplace = True)
 add3.drop(add3.columns[add3.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
 #excludes everything in the description part
@@ -280,8 +284,8 @@ add3_sulf = add3_sulf.replace('--', 0)
 add3_lat = add3_lat.replace('--', 0)
 
 #2014-2018
-#add4 = pd.read_excel(url4, sheet_name = "T10", skiprows = 5)
-add4 = pd.read_excel('2018.xlsx', sheet_name = "T10", skiprows = 5)
+add4 = pd.read_excel(url4, sheet_name = "T10", skiprows = 5)
+#add4 = pd.read_excel('2018.xlsx', sheet_name = "T10", skiprows = 5)
 add4.rename(columns = {'Country or locality3': 'Country'}, inplace = True)
 add4.columns = add4.columns.astype(str)
 add4.drop(add4.columns[add4.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
